@@ -1,3 +1,20 @@
+# aims to help casual fans not make fools of themselves by saying that Derek Jeter is still playing in MLB to friends for example (uses Sean Lahman's database accurate up till end of 2018 season)
+
+# Homepage
+![api frontend](mlbHomepage.jpg)
+
+# Pitcher Form
+![api pitchers](mlbPitchingHomepage.jpg)
+
+# Sample Pitcher Stats Retrieved from Node & Express Server Backend
+![jacob degrom stats](samplePitcherStats.jpg)
+
+# Batter Form
+![api batters](mlbBattingHomepage.jpg)
+
+# Sample Batter Stats Retrieved from Node & Express Server Backend 
+![derek jeter stats](sampleBatterStats.jpg)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
