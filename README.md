@@ -1,19 +1,19 @@
-# aims to help casual fans not make fools of themselves by saying that Derek Jeter is still playing in MLB to friends for example (uses Sean Lahman's database accurate up till end of 2018 season)
+# **MLB2K18-API** aims to help casual fans not make fools of themselves by saying that Derek Jeter is still playing in MLB to friends for example (uses Sean Lahman's database accurate up till end of 2018 season).  This is the frotend part in the works.
 
 # Homepage
-![api frontend](mlbHomepage.jpg)
+![api frontend](./mlbHomepage.jpg)
 
 # Pitcher Form
-![api pitchers](mlbPitchingHomepage.jpg)
+![api pitchers](./mlbPitchingHomepage.jpg)
 
 # Sample Pitcher Stats Retrieved from Node & Express Server Backend
-![jacob degrom stats](samplePitcherStats.jpg)
+![jacob degrom stats](./samplePitcherStats.jpg)
 
 # Batter Form
-![api batters](mlbBattingHomepage.jpg)
+![api batters](./mlbBattingHomepage.jpg)
 
 # Sample Batter Stats Retrieved from Node & Express Server Backend 
-![derek jeter stats](sampleBatterStats.jpg)
+![derek jeter stats](./sampleBatterStats.jpg)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
