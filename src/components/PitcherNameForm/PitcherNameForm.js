@@ -28,6 +28,22 @@ class PitcherNameForm extends Component {
   }
 
   render() {
+    const stats = this.state.stats;
+    let statsDisplay;
+    if (stats.length !== 0) {
+      statsDisplay = 
+      <div>
+      <h1 className='white'>{`${this.state.stats[0].nameFirst} ${this.state.stats[0].nameLast}`}</h1>
+            {this.state.stats.map((statsEntry, index) => 
+              <li className='white' key={index}>{`PlayerID: ${statsEntry.playerID}`}&nbsp;&nbsp;&nbsp;{`Year: ${statsEntry.yearID}`}&nbsp;&nbsp;&nbsp;{`TeamID: ${statsEntry.teamID}`}&nbsp;&nbsp;&nbsp;{`League: ${statsEntry.lgID}`}&nbsp;&nbsp;&nbsp;{`W-L: ${statsEntry.W}-${statsEntry.L}`}&nbsp;&nbsp;&nbsp;{`ERA: ${statsEntry.ERA}`}&nbsp;&nbsp;&nbsp;{`SO: ${statsEntry.SO}`}&nbsp;&nbsp;&nbsp;{`WHIP: ${statsEntry.WHIP}`}</li>
+            )}
+            <h2>{`${this.state.stats[0].nameFirst} ${this.state.stats[0].nameLast} last played in the MLB in ${this.state.stats[this.state.stats.length - 1].yearID}`}</h2>
+    </div>;} else {
+      statsDisplay = 
+      <div>
+        <p>Player does not exist.</p>
+      </div>
+    };
     return (
       <div className="PitcherForm">
         <Logo/>
@@ -53,11 +69,7 @@ class PitcherNameForm extends Component {
           </div> 
           :
           <div>
-            <h1 className='white'>{`${this.state.stats[0].nameFirst} ${this.state.stats[0].nameLast}`}</h1>
-            {this.state.stats.map((statsEntry, index) => 
-              <li className='white' key={index}>{`PlayerID: ${statsEntry.playerID}`}&nbsp;&nbsp;&nbsp;{`Year: ${statsEntry.yearID}`}&nbsp;&nbsp;&nbsp;{`TeamID: ${statsEntry.teamID}`}&nbsp;&nbsp;&nbsp;{`League: ${statsEntry.lgID}`}&nbsp;&nbsp;&nbsp;{`W-L: ${statsEntry.W}-${statsEntry.L}`}&nbsp;&nbsp;&nbsp;{`ERA: ${statsEntry.ERA}`}&nbsp;&nbsp;&nbsp;{`SO: ${statsEntry.SO}`}&nbsp;&nbsp;&nbsp;{`WHIP: ${statsEntry.WHIP}`}</li>
-            )}
-            <h2>{`${this.state.stats[0].nameFirst} ${this.state.stats[0].nameLast} last played in the MLB in ${this.state.stats[this.state.stats.length - 1].yearID}`}</h2>
+            {statsDisplay}
           </div>} 
         </div>
       </div>
