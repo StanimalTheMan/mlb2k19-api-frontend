@@ -46,7 +46,7 @@ class BatterNameForm extends Component {
     };
     return (
       <div className="BatterForm">
-        <Logo/>
+        <Logo />
         <div className="container">
           { this.state.show ? 
           <div>

@@ -1,21 +1,23 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
-import Logo from './components/Logo/Logo';
-import BatterAPI from './components/BatterAPI/BatterAPI';
-import PitcherAPI from './components/PitcherAPI/PitcherAPI';
-//import PlayerNameForm from './components/PlayerNameForm/PlayerNameForm';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
+import Logo from './components/Logo/Logo';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <Logo />
-        <BatterAPI />
-        <PitcherAPI />
+        <h1>Know if your favorite baseball player may no longer be playing!</h1>
       </div>
     );
   }
 }
 
-export default App;
+export default () => (
+  <div>
+     <Router>
+          <Route component={App} />
+     </Router>
+ </div>
+);

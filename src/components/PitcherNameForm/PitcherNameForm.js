@@ -46,7 +46,7 @@ class PitcherNameForm extends Component {
     };
     return (
       <div className="PitcherForm">
-        <Logo/>
+        <Logo />
         <div className="container">
           { this.state.show ? 
           <div>
@@ -72,6 +72,7 @@ class PitcherNameForm extends Component {
             {statsDisplay}
           </div>} 
         </div>
+        
       </div>
     );
   }
