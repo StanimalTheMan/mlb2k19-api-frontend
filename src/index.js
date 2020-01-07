@@ -3,8 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
 import App from './App';
-import BatterNameForm from './components/BatterNameForm/BatterNameForm'
-import PitcherNameForm from './components/PitcherNameForm/PitcherNameForm'
+import BatterNameForm from './components/BatterNameForm/BatterNameForm';
+import PitcherNameForm from './components/PitcherNameForm/PitcherNameForm';
+import HofNameForm from './components/HofNameForm/HofNameForm';
 import * as serviceWorker from './serviceWorker';
 import 'tachyons';
 
@@ -21,10 +22,14 @@ const routing = (
                 <li>
                     <Link to="/pitching">Pitchers</Link>
                 </li>
+                <li>
+                    <Link to="/hof">Hall Of Fame</Link>
+                </li>
             </ul>
             <Route exact path="/" component={App} />
             <Route path="/batting" component={BatterNameForm} />
             <Route path="/pitching" component={PitcherNameForm} />
+            <Route path="/hof" component={HofNameForm} />
         </div>
     </Router>
 )
