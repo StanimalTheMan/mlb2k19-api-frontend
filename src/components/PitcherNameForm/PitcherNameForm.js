@@ -27,17 +27,50 @@ class PitcherNameForm extends Component {
       this.props.history.push(`/pitching/player?firstname=${this.firstNameInput.value}&lastname=${this.lastNameInput.value}`));
   }
 
+  renderTableData() {
+    return this.state.stats.map((statsEntry, index) => {
+      const { playerID, yearID, teamID, lgID, W, L, ERA, SO, WHIP } = statsEntry;
+      return (
+        <tr key={index}>
+          <td>{playerID}</td>
+          <td>{yearID}</td>
+          <td>{teamID}</td>
+          <td>{lgID}</td>
+          <td>{W}</td>
+          <td>{L}</td>
+          <td>{SO}</td>
+          <td>{ERA}</td>
+          <td>{WHIP}</td>
+        </tr>
+      );
+    });
+  }
+
+  renderTableHeader() {
+    const all_header = Object.keys(this.state.stats[0]);
+    const relevant_fields = ["playerID", "yearID", "teamID", "lgID", "W", "L", "ERA", "SO", "WHIP"]
+    const relevant_header = all_header.filter((header) => {
+      return relevant_fields.includes(header);
+    });
+    return relevant_header.map((key, index) => {
+      return <th key={index}>{key.toUpperCase()}</th>
+    })
+  }
+
   render() {
     const stats = this.state.stats;
     let statsDisplay;
     if (stats.length !== 0) {
       statsDisplay = 
       <div>
-      <h1 className='white'>{`${this.state.stats[0].nameFirst} ${this.state.stats[0].nameLast}`}</h1>
-            {this.state.stats.map((statsEntry, index) => 
-              <li className='white' key={index}>{`PlayerID: ${statsEntry.playerID}`}&nbsp;&nbsp;&nbsp;{`Year: ${statsEntry.yearID}`}&nbsp;&nbsp;&nbsp;{`TeamID: ${statsEntry.teamID}`}&nbsp;&nbsp;&nbsp;{`League: ${statsEntry.lgID}`}&nbsp;&nbsp;&nbsp;{`W-L: ${statsEntry.W}-${statsEntry.L}`}&nbsp;&nbsp;&nbsp;{`ERA: ${statsEntry.ERA}`}&nbsp;&nbsp;&nbsp;{`SO: ${statsEntry.SO}`}&nbsp;&nbsp;&nbsp;{`WHIP: ${statsEntry.WHIP}`}</li>
-            )}
-            <h2>{`${this.state.stats[0].nameFirst} ${this.state.stats[0].nameLast} last played in the MLB in ${this.state.stats[this.state.stats.length - 1].yearID}`}</h2>
+        <h1 className='white'>{`${this.state.stats[0].nameFirst} ${this.state.stats[0].nameLast}`}</h1>
+        <table className="center" id="stats">
+          <tbody className="white">
+            <tr>{this.renderTableHeader()}</tr>
+            {this.renderTableData()}
+          </tbody>
+        </table>
+        <h2>{`${this.state.stats[0].nameFirst} ${this.state.stats[0].nameLast} last played in the MLB in ${this.state.stats[this.state.stats.length - 1].yearID}`}</h2>
     </div>;} else {
       statsDisplay = 
       <div>
