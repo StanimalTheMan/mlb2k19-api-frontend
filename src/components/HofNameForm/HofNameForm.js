@@ -32,8 +32,8 @@ class HofNameForm extends Component {
     let hofDataDisplay;
     if (data.length !== 0) {
       hofDataDisplay = 
-      <div>
-        <h2>{`${this.state.hofData[0].nameFirst} ${this.state.hofData[0].nameLast} is in the MLB Hall of Fame as of the end of the 2018 season and was inducted in ${this.state.hofData[this.state.hofData.length - 1].yearid}.`}</h2>
+      <div>        
+        <h2>{this.state.hofData[this.state.hofData.length - 1].inducted === 'Y' && `${this.state.hofData[0].nameFirst} ${this.state.hofData[0].nameLast} is in the MLB Hall of Fame as of the end of the 2018 season and was inducted in ${this.state.hofData[this.state.hofData.length - 1].yearid}.`}</h2>
     </div>;} else {
       hofDataDisplay = 
       <div>
@@ -60,7 +60,7 @@ class HofNameForm extends Component {
               <input type='text' ref={(lastNameInput) => this.lastNameInput = lastNameInput}  className='f4 pa2 w-70 center'/>
               <br></br>
               <br></br>
-              <button className='w-30 grow f4 link ph3 pv'>Get Pitcher Stats!</button>
+              <button className='w-30 grow f4 link ph3 pv'>Check player's HOF status</button>
             </form>
           </div> 
           :
