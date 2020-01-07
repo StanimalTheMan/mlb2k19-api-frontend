@@ -17,6 +17,12 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# Sample HOF Query Form
+![hof query form](./hofquery.png)
+
+# Sample HOF Data
+![roberto clemente hof status](./hofData.png)
+
 ## Available Scripts
 
 In the project directory, you can run:
