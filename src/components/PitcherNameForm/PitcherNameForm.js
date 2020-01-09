@@ -20,11 +20,11 @@ class PitcherNameForm extends Component {
     event.preventDefault();
     axios.get('http://localhost:3000/pitching/player',
       {
-        params: {firstname: this.firstNameInput.value, lastname: 
-      this.lastNameInput.value}})
+        params: {firstname: this.firstNameInput.value[0].toUpperCase() + this.firstNameInput.value.substr(1, this.firstNameInput.value.length).toLowerCase(), lastname:
+        isOddName(this.lastNameInput.value) ? this.lastNameInput.value : this.lastNameInput.value[0].toUpperCase() + this.lastNameInput.value.substr(1, this.lastNameInput.value.length).toLowerCase()}})
       .then(json => {this.setState({stats: json.data, show: !this.state.show})}
       ,
-      this.props.history.push(`/pitching/player?firstname=${this.firstNameInput.value}&lastname=${this.lastNameInput.value}`));
+      this.props.history.push(`/pitching/player?firstname=${this.firstNameInput.value[0].toUpperCase() + this.firstNameInput.value.substr(1, this.firstNameInput.value.length).toLowerCase()}&lastname=${this.lastNameInput.value[0].toUpperCase() + this.lastNameInput.value.substr(1, this.lastNameInput.value.length).toLowerCase()}`));
   }
 
   renderTableData() {
@@ -118,3 +118,7 @@ export default () => (
      </Router>
  </div>
 );
+
+function isOddName(name) { // temporarily tests if name is like deGrom which is a valid name unlike rodRiguez. have to find a working solution
+  return name === "deGrom";
+}
