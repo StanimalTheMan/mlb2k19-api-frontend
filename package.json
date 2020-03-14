@@ -3,13 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "axios": "^0.19.0",
+    "axios": "^0.19.2",
+    "lodash": "^4.17.15",
     "query-string": "^6.8.3",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
+    "react-redux": "^7.2.0",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.2.0",
+    "react-scripts": "^3.4.0",
     "react-tilt": "^0.1.4",
+    "redux": "^4.0.5",
+    "redux-form": "^8.3.1",
+    "redux-forms": "^1.0.0-3",
+    "redux-thunk": "^2.3.0",
     "tachyons": "^4.11.1"
   },
   "scripts": {

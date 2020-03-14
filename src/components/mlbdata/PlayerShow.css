@@ -1,12 +1,13 @@
 .form {
-    width: 700px;
+  width: 700px;
 }
 
-p, h2 {
+p,
+h2 {
   color: white;
 }
 
-div { 
+div {
   text-align: center;
 }
 
@@ -18,7 +19,8 @@ div {
   width: 100%;
 }
 
-#stats td, #stats th {
+#stats td,
+#stats th {
   border: 1px solid #ddd;
   padding: 8px;
 }
@@ -29,5 +31,3 @@ div {
   text-align: center;
   background-color: black;
 }
-
-

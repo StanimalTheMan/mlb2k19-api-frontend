@@ -1,0 +1,2 @@
+export const FETCH_BATTER = "FETCH_BATTER";
+export const FETCH_PITCHER = "FETCH_PITCHER";
