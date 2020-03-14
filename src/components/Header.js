@@ -2,10 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import "./Header.css";
+import Logo from "./mlbdata/Logo";
 
 const Header = () => {
   return (
     <div className="ui secondary pointing menu">
+      <Logo />
       <Link to="/" className="item">
         <h1>MLB2K19 API</h1>
       </Link>

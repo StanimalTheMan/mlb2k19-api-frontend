@@ -1,6 +1,6 @@
 import React from "react";
 import { Field, reduxForm } from "redux-form";
-import { withRouter } from "react-router-dom";
+import "./PlayerShow.css";
 
 class PlayerForm extends React.Component {
   renderInput = ({ input, label }) => {
