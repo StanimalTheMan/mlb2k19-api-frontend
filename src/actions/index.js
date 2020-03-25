@@ -2,9 +2,10 @@ import history from "../history";
 import { FETCH_BATTER, FETCH_PITCHER } from "./types";
 import axios from "axios";
 
+//use local host in get if you want to run app locally
 export const fetchBatter = formValues => async dispatch => {
   axios
-    .get("http://localhost:3000/batting/player", {
+    .get("https://nameless-scrubland-88143.herokuapp.com/batting/player", {
       params: {
         firstname: formValues.firstName,
         lastname: formValues.lastName
@@ -20,7 +21,7 @@ export const fetchBatter = formValues => async dispatch => {
 
 export const fetchPitcher = formValues => async dispatch => {
   axios
-    .get("http://localhost:3000/pitching/player", {
+    .get("https://nameless-scrubland-88143.herokuapp.com/pitching/player", {
       params: {
         firstname: formValues.firstName,
         lastname: formValues.lastName
