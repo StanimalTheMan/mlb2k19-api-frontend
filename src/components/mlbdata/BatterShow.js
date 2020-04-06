@@ -33,9 +33,9 @@ class BatterShow extends React.Component {
       "HR",
       "RBI",
       "AVG",
-      "OBP"
+      "OBP",
     ];
-    const relevant_header = all_header.filter(header => {
+    const relevant_header = all_header.filter((header) => {
       return relevant_fields.includes(header);
     });
     return relevant_header.map((key, index) => {
@@ -53,9 +53,10 @@ class BatterShow extends React.Component {
             <h1 className="white">{`${stats.players[0].nameFirst} ${stats.players[0].nameLast}`}</h1>
             <h2>{`${stats.players[0].nameFirst} ${
               stats.players[0].nameLast
-            } last played in the MLB in ${
-              stats.players[stats.players.length - 1].yearID
-            }`}</h2>
+            } last played in the MLB in ${stats.players.reduce(
+              (max, cur) => Math.max(max, cur.yearID),
+              stats.players[0].yearID
+            )}`}</h2>
             <table className="center" id="stats">
               <tbody className="white">
                 <tr>{this.renderTableHeader(stats)}</tr>
@@ -81,9 +82,9 @@ class BatterShow extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    batter: state.players
+    batter: state.players,
   };
 };
 
