@@ -1,4 +1,4 @@
-# _MLB2K19-API_ aims to help casual fans not make fools of themselves by saying that Derek Jeter is still playing in MLB to friends for example (uses Sean Lahman's database accurate up till end of 2019 season). This is the frotend part in the works.
+# _MLB2K19-API_ aims to help casual fans not make fools of themselves by saying that Derek Jeter is still playing in MLB to friends for example (uses Sean Lahman's database accurate up till the end of 2019 season). This is the frontend part in the works.
 
 # Link
 
