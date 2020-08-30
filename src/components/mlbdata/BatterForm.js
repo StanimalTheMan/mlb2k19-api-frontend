@@ -1,11 +1,11 @@
-import _ from "lodash";
+// import _ from "lodash";
 import React from "react";
 import { connect } from "react-redux";
 import { fetchBatter } from "../../actions/";
 import PlayerForm from "./PlayerForm";
 
 class BatterForm extends React.Component {
-  onSubmit = formValues => {
+  onSubmit = (formValues) => {
     this.props.fetchBatter(formValues);
   };
 
@@ -19,9 +19,9 @@ class BatterForm extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    batter: state.players
+    batter: state.players,
   };
 };
 

@@ -1,11 +1,11 @@
-import _ from "lodash";
+// import _ from "lodash";
 import React from "react";
 import { connect } from "react-redux";
 import { fetchPitcher } from "../../actions/";
 import PlayerForm from "./PlayerForm";
 
 class PitcherForm extends React.Component {
-  onSubmit = formValues => {
+  onSubmit = (formValues) => {
     this.props.fetchPitcher(formValues);
   };
 
@@ -19,9 +19,9 @@ class PitcherForm extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    pitcher: state.players
+    pitcher: state.players,
   };
 };
 

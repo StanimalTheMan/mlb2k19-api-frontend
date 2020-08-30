@@ -1,4 +1,4 @@
-import _ from "lodash";
+//import _ from "lodash";
 import { FETCH_BATTER, FETCH_PITCHER } from "../actions/types";
 
 export default (state = {}, action) => {
