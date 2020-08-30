@@ -8,7 +8,7 @@ export const fetchBatter = (formValues) => async (dispatch) => {
   let lastName = formValues.lastName.replace(/\s/g, "").toLowerCase();
 
   const requestOne = axios.get(
-    "http://nameless-scrubland-88143.herokuapp.com/batting/player",
+    "https://nameless-scrubland-88143.herokuapp.com/batting/player",
     {
       // standard queries like Mike Trout
       params: {
@@ -22,7 +22,7 @@ export const fetchBatter = (formValues) => async (dispatch) => {
   lastName = formValues.lastName.replace(/\s/g, "").toUpperCase();
 
   const requestTwo = axios.get(
-    "http://nameless-scrubland-88143.herokuapp.com/batting/player",
+    "https://nameless-scrubland-88143.herokuapp.com/batting/player",
     {
       // trying to deal with name DJ LeMahieu
       params: {
@@ -37,7 +37,7 @@ export const fetchBatter = (formValues) => async (dispatch) => {
   );
 
   const requestThree = axios.get(
-    "http://nameless-scrubland-88143.herokuapp.com/batting/player",
+    "https://nameless-scrubland-88143.herokuapp.com/batting/player",
     {
       // trying to deal with name Jacob deGrom
       params: {
@@ -97,7 +97,7 @@ export const fetchPitcher = (formValues) => async (dispatch) => {
   let lastName = formValues.lastName.replace(/\s/g, "").toLowerCase();
 
   const requestOne = axios.get(
-    "http://nameless-scrubland-88143.herokuapp.com/pitching/player",
+    "https://nameless-scrubland-88143.herokuapp.com/pitching/player",
     {
       // standard queries like Mike Trout
       params: {
@@ -108,7 +108,7 @@ export const fetchPitcher = (formValues) => async (dispatch) => {
   );
 
   const requestTwo = axios.get(
-    "http://nameless-scrubland-88143.herokuapp.com/pitching/player",
+    "https://nameless-scrubland-88143.herokuapp.com/pitching/player",
     {
       // trying to deal with name Jacob deGrom
       params: {
