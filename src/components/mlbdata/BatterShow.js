@@ -7,7 +7,17 @@ import "./PlayerShow.css";
 class BatterShow extends React.Component {
   renderTableData(stats) {
     return stats.players.map((statsEntry, index) => {
-      const { playerID, yearID, teamID, lgID, HR, RBI, AVG, OBP } = statsEntry;
+      const {
+        playerID,
+        yearID,
+        teamID,
+        lgID,
+        HR,
+        RBI,
+        AVG,
+        OBP,
+        SB,
+      } = statsEntry;
       return (
         <tr key={index}>
           <td>{playerID}</td>
@@ -18,6 +28,7 @@ class BatterShow extends React.Component {
           <td>{RBI}</td>
           <td>{AVG}</td>
           <td>{OBP}</td>
+          <td>{SB}</td>
         </tr>
       );
     });
@@ -34,6 +45,7 @@ class BatterShow extends React.Component {
       "RBI",
       "AVG",
       "OBP",
+      "SB",
     ];
     const relevant_header = all_header.filter((header) => {
       return relevant_fields.includes(header);
