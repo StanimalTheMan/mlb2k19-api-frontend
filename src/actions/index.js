@@ -24,7 +24,7 @@ export const fetchBatter = (formValues) => async (dispatch) => {
   const requestTwo = axios.get(
     "https://nameless-scrubland-88143.herokuapp.com/batting/player",
     {
-      // trying to deal with name DJ LeMahieu
+      // trying to deal with names like DJ LeMahieu
       params: {
         firstname: firstName,
         lastname:
@@ -39,7 +39,7 @@ export const fetchBatter = (formValues) => async (dispatch) => {
   const requestThree = axios.get(
     "https://nameless-scrubland-88143.herokuapp.com/batting/player",
     {
-      // trying to deal with name Jacob deGrom
+      // trying to deal with names like Jacob deGrom
       params: {
         firstname: firstName.charAt(0) + firstName.slice(1).toLowerCase(),
         lastname:
@@ -50,19 +50,37 @@ export const fetchBatter = (formValues) => async (dispatch) => {
     }
   );
 
+  const requestFour = axios.get(
+    "https://nameless-scrubland-88143.herokuapp.com/batting/player",
+    {
+      // trying to deal with names like Ryan McMahon and Jeff McNeil
+      params: {
+        firstname: firstName.charAt(0) + firstName.slice(1).toLowerCase(),
+        lastname:
+          lastName.charAt(0) +
+          lastName.charAt(1).toLowerCase() +
+          lastName.charAt(2) +
+          lastName.slice(3).toLowerCase(),
+      },
+    }
+  );
+
   //  open to take into account other names TBD
 
-  axios.all([requestOne, requestTwo, requestThree]).then(
+  axios.all([requestOne, requestTwo, requestThree, requestFour]).then(
     axios.spread((...responses) => {
       const responseOne = responses[0];
       const responseTwo = responses[1];
       const responseThree = responses[2];
+      const responseFour = responses[3];
 
       const toDispatch = responseOne.data.length
         ? responseOne
         : responseTwo.data.length
         ? responseTwo
-        : responseThree;
+        : responseThree.data.length
+        ? responseThree
+        : responseFour;
 
       if (toDispatch === responseOne) {
         firstName = formValues.firstName.replace(/\s/g, "").toLowerCase();
@@ -77,10 +95,17 @@ export const fetchBatter = (formValues) => async (dispatch) => {
           lastName.charAt(1).toLowerCase() +
           lastName.charAt(2) +
           lastName.slice(3).toLowerCase();
-      } else {
+      } else if (toDispatch === responseThree) {
         firstName = firstName.charAt(0) + firstName.slice(1).toLowerCase();
         lastName =
           lastName.slice(0, 2).toLowerCase() +
+          lastName.charAt(2) +
+          lastName.slice(3).toLowerCase();
+      } else {
+        firstName = firstName.charAt(0) + firstName.slice(1).toLowerCase();
+        lastName =
+          lastName.charAt(0) +
+          lastName.charAt(1).toLowerCase() +
           lastName.charAt(2) +
           lastName.slice(3).toLowerCase();
       }
@@ -99,7 +124,7 @@ export const fetchPitcher = (formValues) => async (dispatch) => {
   const requestOne = axios.get(
     "https://nameless-scrubland-88143.herokuapp.com/pitching/player",
     {
-      // standard queries like Mike Trout
+      // standard queries like Shane Bieber
       params: {
         firstname: firstName.charAt(0).toUpperCase() + firstName.slice(1),
         lastname: lastName.charAt(0).toUpperCase() + lastName.slice(1),
@@ -121,22 +146,48 @@ export const fetchPitcher = (formValues) => async (dispatch) => {
     }
   );
 
+  const requestThree = axios.get(
+    "https://nameless-scrubland-88143.herokuapp.com/pitching/player",
+    {
+      // trying to deal with names like Collin McHugh
+      params: {
+        firstname: firstName.charAt(0).toUpperCase() + firstName.slice(1),
+        lastname:
+          lastName.charAt(0).toUpperCase() +
+          lastName.charAt(1) +
+          lastName.charAt(2).toUpperCase() +
+          lastName.slice(3),
+      },
+    }
+  );
+
   //  open to take into account other names TBD
 
-  axios.all([requestOne, requestTwo]).then(
+  axios.all([requestOne, requestTwo, requestThree]).then(
     axios.spread((...responses) => {
       const responseOne = responses[0];
       const responseTwo = responses[1];
+      const responseThree = responses[2];
 
-      const toDispatch = responseOne.data.length ? responseOne : responseTwo;
+      const toDispatch = responseOne.data.length
+        ? responseOne
+        : responseTwo.data.length
+        ? responseTwo
+        : responseThree;
 
       firstName = firstName.charAt(0).toUpperCase() + firstName.slice(1);
       if (toDispatch === responseOne) {
         lastName = formValues.lastName.replace(/\s/g, "").toLowerCase();
         lastName = lastName.charAt(0).toUpperCase() + lastName.slice(1);
-      } else {
+      } else if (toDispatch === responseTwo) {
         lastName =
           lastName.slice(0, 2) +
+          lastName.charAt(2).toUpperCase() +
+          lastName.slice(3);
+      } else {
+        lastName =
+          lastName.charAt(0).toUpperCase() +
+          lastName.charAt(1) +
           lastName.charAt(2).toUpperCase() +
           lastName.slice(3);
       }
