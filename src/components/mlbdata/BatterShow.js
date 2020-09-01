@@ -14,9 +14,9 @@ class BatterShow extends React.Component {
         lgID,
         HR,
         RBI,
+        SB,
         AVG,
         OBP,
-        SB,
       } = statsEntry;
       return (
         <tr key={index}>
@@ -26,9 +26,9 @@ class BatterShow extends React.Component {
           <td>{lgID}</td>
           <td>{HR}</td>
           <td>{RBI}</td>
+          <td>{SB}</td>
           <td>{AVG}</td>
           <td>{OBP}</td>
-          <td>{SB}</td>
         </tr>
       );
     });
@@ -43,9 +43,9 @@ class BatterShow extends React.Component {
       "lgID",
       "HR",
       "RBI",
+      "SB",
       "AVG",
       "OBP",
-      "SB",
     ];
     const relevant_header = all_header.filter((header) => {
       return relevant_fields.includes(header);
