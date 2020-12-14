@@ -1,2 +1,4 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
+
+https://nameless-scrubland-88143.herokuapp.com/batting

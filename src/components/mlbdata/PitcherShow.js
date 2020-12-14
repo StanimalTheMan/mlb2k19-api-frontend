@@ -3,6 +3,7 @@ import React from "react";
 import { connect } from "react-redux";
 
 import "./PlayerShow.css";
+import { fetchPitcher } from "../../actions/";
 
 class PitcherShow extends React.Component {
   renderTableData(stats) {
@@ -55,6 +56,15 @@ class PitcherShow extends React.Component {
     });
   }
 
+  componentDidMount() {
+    const search = this.props.location.search;
+    const urlSearchParams = new URLSearchParams(search);
+    this.props.fetchPitcher({
+      firstName: urlSearchParams.get("firstname"),
+      lastName: urlSearchParams.get("lastname"),
+    });
+  }
+
   render() {
     if (!_.isEmpty(this.props.pitcher)) {
       const stats = this.props.pitcher;
@@ -100,4 +110,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, null)(PitcherShow);
+export default connect(mapStateToProps, { fetchPitcher })(PitcherShow);

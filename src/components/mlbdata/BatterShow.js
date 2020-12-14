@@ -3,6 +3,7 @@ import React from "react";
 import { connect } from "react-redux";
 
 import "./PlayerShow.css";
+import { fetchBatter } from "../../actions/";
 
 class BatterShow extends React.Component {
   renderTableData(stats) {
@@ -55,6 +56,15 @@ class BatterShow extends React.Component {
     });
   }
 
+  componentDidMount() {
+    const search = this.props.location.search;
+    const urlSearchParams = new URLSearchParams(search);
+    this.props.fetchBatter({
+      firstName: urlSearchParams.get("firstname"),
+      lastName: urlSearchParams.get("lastname"),
+    });
+  }
+
   render() {
     if (!_.isEmpty(this.props.batter)) {
       const stats = this.props.batter;
@@ -100,4 +110,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, null)(BatterShow);
+export default connect(mapStateToProps, { fetchBatter })(BatterShow);

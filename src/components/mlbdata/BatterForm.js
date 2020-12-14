@@ -6,6 +6,8 @@ import PlayerForm from "./PlayerForm";
 
 class BatterForm extends React.Component {
   onSubmit = (formValues) => {
+    console.log(formValues);
+    console.log("Adfadf", this.props);
     this.props.fetchBatter(formValues);
   };
 

@@ -2,6 +2,8 @@ import history from "../history";
 import { FETCH_BATTER, FETCH_PITCHER } from "./types";
 import axios from "axios";
 
+// https://nameless-scrubland-88143.herokuapp.com/batting
+
 //use local host in get if you want to run app locally
 export const fetchBatter = (formValues) => async (dispatch) => {
   let firstName = formValues.firstName.replace(/\s/g, "").toLowerCase();
