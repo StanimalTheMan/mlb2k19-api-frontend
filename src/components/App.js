@@ -10,6 +10,10 @@ import history from "../history";
 const App = () => {
   return (
     <div className="ui container">
+      <h1 className="title">
+        Find out when a player last played as of end of 2019 season and get some
+        stats too!
+      </h1>
       <Router history={history}>
         <Header />
         <Route path="/batting" exact component={BatterForm} />

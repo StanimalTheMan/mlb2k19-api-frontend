@@ -2,12 +2,20 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background: linear-gradient(
+  background-image: url("/mlbbackground.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  /* background: linear-gradient(
     90deg,
     rgba(36, 35, 0, 1) 0%,
     rgba(121, 9, 12, 1) 0%,
     rgba(0, 53, 255, 1) 100%
-  );
+  ); */
+}
+
+h1 {
+  color: white;
 }
 
 a {

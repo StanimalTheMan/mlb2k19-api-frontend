@@ -31,3 +31,8 @@ div {
   text-align: center;
   background-color: black;
 }
+
+#stats td {
+  background-color: grey;
+  color: black;
+}
